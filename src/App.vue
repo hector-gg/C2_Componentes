@@ -2,12 +2,15 @@
     <div>
         <div><button @click="toggle">Modal</button></div>
         <div>{{ text }}</div>
+        <div>{{ algo }}</div>
     </div>
 </template>
 
 <script>
+import base from "@/mixins/base";
 export default {
     name: "App",
+    mixins: [base],
     data() {
         return {
             text: "Hola Vue",
