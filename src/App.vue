@@ -1,15 +1,40 @@
 <template>
     <div>
-        <Modal />
+        <div><button @click="toggle">Modal</button></div>
+        <div>{{ text }}</div>
     </div>
 </template>
 
 <script>
-import Modal from "./components/Modal.vue";
 export default {
     name: "App",
-    components: {
-        Modal,
+    data() {
+        return {
+            text: "Hola Vue",
+        };
+    },
+    beforeCreate() {
+        console.log("beforeCreate", this.$data, this.$el);
+    },
+    created() {
+        console.log("Create", this.$data, this.$el);
+    },
+    mounted() {
+        console.log("mounted", this.$data, this.$el);
+    },
+    beforeMount() {
+        console.log("unmounted", this.$data, this.$el);
+    },
+    updated() {
+        console.log("updated", this.$data, this.$el);
+    },
+    beforeUpdate() {
+        console.log("beforeUpdate", this.$data, this.$el);
+    },
+    methods: {
+        toggle() {
+            this.text = "new text";
+        },
     },
 };
 </script>
