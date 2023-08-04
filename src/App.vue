@@ -1,44 +1,12 @@
 <template>
-    <div>
-        <div><button @click="toggle">Modal</button></div>
-        <div>{{ text }}</div>
-        <div>{{ algo }}</div>
-    </div>
+    <Home></Home>
 </template>
 
 <script>
-import base from "@/mixins/base";
+import Home from "./components/Home";
 export default {
     name: "App",
-    mixins: [base],
-    data() {
-        return {
-            text: "Hola Vue",
-        };
-    },
-    beforeCreate() {
-        console.log("beforeCreate", this.$data, this.$el);
-    },
-    created() {
-        console.log("Create", this.$data, this.$el);
-    },
-    mounted() {
-        console.log("mounted", this.$data, this.$el);
-    },
-    beforeMount() {
-        console.log("unmounted", this.$data, this.$el);
-    },
-    updated() {
-        console.log("updated", this.$data, this.$el);
-    },
-    beforeUpdate() {
-        console.log("beforeUpdate", this.$data, this.$el);
-    },
-    methods: {
-        toggle() {
-            this.text = "new text";
-        },
-    },
+    components: { Home },
 };
 </script>
 
