@@ -1,9 +1,10 @@
 <template>
     <div>{{ fullName }}</div>
     <div>{{ username }}</div>
+    <button ref="btn">Click!</button>
 </template>
 <script>
-import { toRefs, computed, inject, ref } from "vue";
+import { toRefs, computed, inject, ref, watch } from "vue";
 
 export default {
     props: {
@@ -16,15 +17,25 @@ export default {
         const fullName = computed(() => {
             return `${firstName.value} ${lastName.value}`;
         });
+
         const username = ref(inject("username"));
 
         expose({
             fullName,
         });
 
+        const btn = ref(null); //CUANDO SE QUEIRE OBTENER UN ELEMENTO HTML POR DEFECTO SE LE COLOCA NULL
+        console.log(btn.value);
+
+        watch(btn, (valor, anterior) => {
+            console.log(valor);
+            console.log(anterior);
+        });
+
         return {
             fullName,
             username,
+            btn,
         };
     },
 };
